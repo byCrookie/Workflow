@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Workflow</Title>
+        <Authors>byCrookie</Authors>
+        <Copyright>https://github.com/byCrookie/Workflow/blob/main/LICENSE</Copyright>
+        <PackageProjectUrl>https://github.com/byCrookie/Workflow</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/byCrookie/Workflow</RepositoryUrl>
+        <RepositoryType>Github</RepositoryType>
+    </PropertyGroup>
+
+</Project>

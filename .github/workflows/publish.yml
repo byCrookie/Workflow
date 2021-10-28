@@ -26,6 +26,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish Nuget to GitHub registry
-      run: dotnet nuget push ./src/Workflow/out/*.nupkg -k ${GITHUB_TOKEN} -s https://nuget.pkg.github.com/byCrookie/index.json --no-symbols 
+      run: dotnet nuget push ./src/Workflow/out/*.nupkg -k ${GITHUB_TOKEN} -s https://nuget.pkg.github.com/byCrookie/index.json -n
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

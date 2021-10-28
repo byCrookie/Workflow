@@ -9,6 +9,7 @@
         <PackageProjectUrl>https://github.com/byCrookie/Workflow</PackageProjectUrl>
         <RepositoryUrl>https://github.com/byCrookie/Workflow</RepositoryUrl>
         <RepositoryType>Github</RepositoryType>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
 </Project>

@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BE37EDA2-EFC2-4A88-9468-BC5F64B790EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{581DCCCB-62E2-466D-825B-454AA48CBAFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow", "src\Workflow\Workflow.csproj", "{E1AB2BB3-BE5E-42A7-97A0-AAC3D92CCD98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1AB2BB3-BE5E-42A7-97A0-AAC3D92CCD98} = {BE37EDA2-EFC2-4A88-9468-BC5F64B790EE}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1AB2BB3-BE5E-42A7-97A0-AAC3D92CCD98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1AB2BB3-BE5E-42A7-97A0-AAC3D92CCD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1AB2BB3-BE5E-42A7-97A0-AAC3D92CCD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1AB2BB3-BE5E-42A7-97A0-AAC3D92CCD98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

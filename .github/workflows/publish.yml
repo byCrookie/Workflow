@@ -21,11 +21,13 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
+    - name: Build Release
+      run: dotnet build --no-restore -c Release
+    - name: Build Debug
+      run: dotnet build --no-restore -c Debug
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish Nuget to GitHub registry
-      run: dotnet nuget push ./src/Workflow/out/*.nupkg -k ${GITHUB_TOKEN} -s https://nuget.pkg.github.com/byCrookie/index.json
+      run: dotnet nuget push ./src/Workflow/bin/Release/*.nupkg -k ${GITHUB_TOKEN} -s https://nuget.pkg.github.com/byCrookie/index.json
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

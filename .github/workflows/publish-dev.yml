@@ -1,5 +1,4 @@
-name: Publish Nuget Package Release
-
+name: Publish Nuget Package Dev
 on:
   push:
     branches: [ dev ]

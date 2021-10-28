@@ -1,0 +1,35 @@
+name: Publish Nuget Package Dev
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    types: [closed]
+    branches: [ dev ]
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build Release
+      run: dotnet build --no-restore -c Release
+    - name: Build Debug
+      run: dotnet build --no-restore -c Debug
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Pack Nuget
+      run: dotnet pack -c Release -o out --include-source --include-symbols -p:PackageVersion=1.0.3 --version-suffix "ci"
+    - name: Publish Nuget to GitHub registry
+      run: dotnet nuget push out/*.nupkg -k ${GITHUB_TOKEN} -s https://nuget.pkg.github.com/byCrookie/index.json --skip-duplicate
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

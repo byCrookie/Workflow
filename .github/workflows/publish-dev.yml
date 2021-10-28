@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Pack Nuget
-      run: dotnet pack -c Release -o out --include-source --include-symbols -p:PackageVersion=1.0.3 --version-suffix "ci"
+      run: dotnet pack -c Release -o out --include-source --include-symbols -p:Version=1.0.3-dev
     - name: Publish Nuget to GitHub registry
       run: dotnet nuget push out/*.nupkg -k ${GITHUB_TOKEN} -s https://nuget.pkg.github.com/byCrookie/index.json --skip-duplicate
       env:

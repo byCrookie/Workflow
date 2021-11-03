@@ -23,9 +23,9 @@ namespace Workflow.Steps.While
 
         public async Task ExecuteAsync(TContext context)
         {
-            while (context.ShouldExecute() && await _condition(context).ConfigureAwait(false))
+            while (context.ShouldExecute() && await _condition(context).ConfigureAwait(true))
             {
-                await _subWorkflow.RunAsync(context).ConfigureAwait(false);
+                await _subWorkflow.RunAsync(context).ConfigureAwait(true);
             }
         }
 

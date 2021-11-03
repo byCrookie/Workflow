@@ -31,13 +31,13 @@ namespace Workflow.Steps.IfElse
 
         public async Task ExecuteAsync(TContext context)
         { 
-            if (await _condition(context).ConfigureAwait(false))
+            if (await _condition(context).ConfigureAwait(true))
             {
-                await _ifStep(context).ConfigureAwait(false);
+                await _ifStep(context).ConfigureAwait(true);
             }
             else
             {
-                await _elseStep(context).ConfigureAwait(false);
+                await _elseStep(context).ConfigureAwait(true);
             }
         }
 

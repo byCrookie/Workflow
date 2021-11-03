@@ -11,7 +11,7 @@ namespace Workflow.Property
             Expression<Func<TContext, TProperty>> propertyPicker)
         {
             var prop = (PropertyInfo) ((MemberExpression) propertyPicker.Body).Member;
-            prop.SetValue(context, await actionReturn(context).ConfigureAwait(false), null);
+            prop.SetValue(context, await actionReturn(context).ConfigureAwait(true), null);
         }
         
         public static Task SetAsync(TContext context, TProperty value,

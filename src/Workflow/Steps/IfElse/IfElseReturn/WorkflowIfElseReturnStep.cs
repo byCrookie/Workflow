@@ -43,13 +43,13 @@ namespace Workflow.Steps.IfElse.IfElseReturn
 
         public async Task ExecuteAsync(TContext context)
         {
-            if (await _condition(context).ConfigureAwait(false))
+            if (await _condition(context).ConfigureAwait(true))
             {
-                await PropertyValueSetter<TContext, TProperty>.SetAsync(context, _ifStep, _propertyIfPicker).ConfigureAwait(false);
+                await PropertyValueSetter<TContext, TProperty>.SetAsync(context, _ifStep, _propertyIfPicker).ConfigureAwait(true);
             }
             else
             {
-                await PropertyValueSetter<TContext, TProperty>.SetAsync(context, _elseStep, _propertyElsePicker).ConfigureAwait(false);
+                await PropertyValueSetter<TContext, TProperty>.SetAsync(context, _elseStep, _propertyElsePicker).ConfigureAwait(true);
             }
         }
 

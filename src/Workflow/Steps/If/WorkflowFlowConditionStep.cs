@@ -27,7 +27,7 @@ namespace Workflow.Steps.If
 
         public async Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return context.ShouldExecute() && await _condition(context).ConfigureAwait(false);
+            return context.ShouldExecute() && await _condition(context).ConfigureAwait(true);
         }
     }
 }

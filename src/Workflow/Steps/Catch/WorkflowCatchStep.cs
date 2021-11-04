@@ -19,7 +19,7 @@ namespace Workflow.Steps.Catch
 
         public async Task ExecuteAsync(TContext context)
         {
-            await _action(context).ConfigureAwait(false);
+            await _action(context).ConfigureAwait(true);
             context.Exception = null;
         }
 

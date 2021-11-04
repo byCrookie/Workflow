@@ -19,7 +19,7 @@ namespace Workflow.Steps.Console.Write
 
         public async Task ExecuteAsync(TContext context)
         {
-            System.Console.Write(await _action(context).ConfigureAwait(false));
+            System.Console.Write(await _action(context).ConfigureAwait(true));
         }
 
         public Task<bool> ShouldExecuteAsync(TContext context)

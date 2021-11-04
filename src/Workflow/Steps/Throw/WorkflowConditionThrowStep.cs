@@ -25,7 +25,7 @@ namespace Workflow.Steps.Throw
 
         public async Task ExecuteAsync(TContext context)
         {
-            await _action(context).ConfigureAwait(false);
+            await _action(context).ConfigureAwait(true);
             var instance = Activator.CreateInstance(typeof(TException));
 
             if (instance is null)
@@ -38,7 +38,7 @@ namespace Workflow.Steps.Throw
 
         public async Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return context.ShouldExecute() && await _condition(context).ConfigureAwait(false);
+            return context.ShouldExecute() && await _condition(context).ConfigureAwait(true);
         }
     }
 }

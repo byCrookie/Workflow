@@ -25,7 +25,7 @@ namespace Workflow.Steps.Throw
 
         public async Task ExecuteAsync(TContext context)
         {
-            await _action(context).ConfigureAwait(false);
+            await _action(context).ConfigureAwait(true);
             
             var instance = Activator.CreateInstance(typeof(TException), _message);
 

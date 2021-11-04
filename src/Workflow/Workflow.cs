@@ -26,7 +26,7 @@ namespace Workflow
 
             while (doneSteps.Count != _steps.Count)
             {
-                await ExecuteStepsAsync(context, doneSteps, _steps).ConfigureAwait(false);
+                await ExecuteStepsAsync(context, doneSteps, _steps).ConfigureAwait(true);
             }
 
             return context;
@@ -41,9 +41,9 @@ namespace Workflow
                 {
                     doneSteps.Add(step);
                     
-                    if (await step.ShouldExecuteAsync(context).ConfigureAwait(false))
+                    if (await step.ShouldExecuteAsync(context).ConfigureAwait(true))
                     {
-                        await step.ExecuteAsync(context).ConfigureAwait(false);
+                        await step.ExecuteAsync(context).ConfigureAwait(true);
                     }
                 }
             }
@@ -57,7 +57,7 @@ namespace Workflow
                     context.Exception = exception;
                     var catchStep = stepsTodo.First(step => step is WorkflowCatchStep<TContext>);
                     stepsTodo.RemoveRange(0, stepsTodo.IndexOf(catchStep));
-                    await ExecuteStepsAsync(context, doneSteps, stepsTodo).ConfigureAwait(false);
+                    await ExecuteStepsAsync(context, doneSteps, stepsTodo).ConfigureAwait(true);
                 }
                 else
                 {

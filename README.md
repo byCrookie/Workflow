@@ -1,12 +1,22 @@
 # Workflow
 A dynamic workflow library for .NET applications (mainly console).
 
-### Dependency Injection
+## How to use
+:warning: **Packages**: Packages are not working at the moment, please build the project yourself using the sourcecode.
 
-There are some classes that have to be registred. You can use [Workflow.Autofac](https://github.com/byCrookie/Workflow.Autofac) as an example or use it directly in your project. 
+## Contributing / Issues
+All contributions are welcome! If you have any issues or feature requests, either implement it yourself or create an issue, thank you.
 
-### Usage
+## Donation
+If you like this project, feel free to donate and support the further development. Thank you.
+
+Bitcoin (BTC) Donations using Bitcoin (BTC) Network -> 14vZ2rRTEWXhvfLrxSboTN15k5XuRL1AHq 
+
+### Docs
 Workflows make it easy to create a console application flow. Workflow has various methods from reading multiline user content to using custom built steps.
+
+### Dependency Injection
+There are some classes that have to be registred. You can use [Workflow.Autofac](https://github.com/byCrookie/Workflow.Autofac) as an example or use it directly in your project.
 
 #### Example
 ```C#

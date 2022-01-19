@@ -11,8 +11,10 @@
         <RepositoryType>Github</RepositoryType>
         <PackageTags>workflow;core;async</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="buildsdk" Version="1.0.0-pre-202201195058" />
+    </ItemGroup>
 
 </Project>

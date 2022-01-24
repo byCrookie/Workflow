@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.IfElse
+﻿namespace Workflow.Steps.IfElse
 {
     internal class WorkflowIfElseFlowStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
     {
@@ -43,7 +40,7 @@ namespace Workflow.Steps.IfElse
 
         public Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return Task.FromResult(context.ShouldExecute());
+            return context.ShouldExecuteAsync();
         }
     }
 }

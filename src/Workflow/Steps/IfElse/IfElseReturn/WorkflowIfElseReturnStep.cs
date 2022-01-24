@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 using Workflow.Property;
 
 namespace Workflow.Steps.IfElse.IfElseReturn
@@ -55,7 +53,7 @@ namespace Workflow.Steps.IfElse.IfElseReturn
 
         public Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return Task.FromResult(context.ShouldExecute());
+            return context.ShouldExecuteAsync();
         }
     }
 }

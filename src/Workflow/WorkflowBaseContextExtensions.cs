@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Workflow
+﻿namespace Workflow
 {
     public static class WorkflowBaseContextExtensions
     {

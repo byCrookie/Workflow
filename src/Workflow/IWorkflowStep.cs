@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Workflow
+﻿namespace Workflow
 {
     public interface IWorkflowStep<in TContext> where TContext : WorkflowBaseContext
     {

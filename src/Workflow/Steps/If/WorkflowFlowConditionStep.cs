@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.If
+﻿namespace Workflow.Steps.If
 {
     internal class WorkflowFlowConditionStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
     {
@@ -27,7 +24,8 @@ namespace Workflow.Steps.If
 
         public async Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return context.ShouldExecute() && await _condition(context).ConfigureAwait(true);
+            return await context.ShouldExecuteAsync().ConfigureAwait(true)
+                   && await _condition(context).ConfigureAwait(true);
         }
     }
 }

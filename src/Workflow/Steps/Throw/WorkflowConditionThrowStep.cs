@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.Throw
+﻿namespace Workflow.Steps.Throw
 {
     internal class WorkflowConditionThrowStep<TException, TContext> : 
         IWorkflowStep<TContext> 
@@ -38,7 +35,8 @@ namespace Workflow.Steps.Throw
 
         public async Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return context.ShouldExecute() && await _condition(context).ConfigureAwait(true);
+            return await context.ShouldExecuteAsync().ConfigureAwait(true) 
+                   && await _condition(context).ConfigureAwait(true);
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.Catch
+﻿namespace Workflow.Steps.Catch
 {
     public interface IWorkflowCatchBuilder<TContext> where TContext : WorkflowBaseContext
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.Stop
+﻿namespace Workflow.Steps.Stop
 {
     public interface IWorkflowStopBuilder<TContext> where TContext : WorkflowBaseContext
     {

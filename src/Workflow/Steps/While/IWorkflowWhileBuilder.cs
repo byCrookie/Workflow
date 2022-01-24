@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.While
+﻿namespace Workflow.Steps.While
 {
     public interface IWorkflowWhileBuilder<TContext> where TContext : WorkflowBaseContext
     {

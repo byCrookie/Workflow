@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Workflow.Steps.Stop
+﻿namespace Workflow.Steps.Stop
 {
     internal class WorkflowStopWithOuterStopStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
     {
@@ -20,7 +18,7 @@ namespace Workflow.Steps.Stop
 
         public Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return Task.FromResult(context.ShouldExecute());
+            return context.ShouldExecuteAsync();
         }
     }
 }

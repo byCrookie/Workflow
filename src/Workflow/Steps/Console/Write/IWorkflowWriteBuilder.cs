@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.Console.Write
+﻿namespace Workflow.Steps.Console.Write
 {
     public interface IWorkflowWriteBuilder<TContext> where TContext : WorkflowBaseContext
     {

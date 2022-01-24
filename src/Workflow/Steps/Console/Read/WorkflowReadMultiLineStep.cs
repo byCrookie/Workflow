@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Text;
-using System.Threading.Tasks;
 using Workflow.Property;
 
 namespace Workflow.Steps.Console.Read
@@ -74,7 +72,7 @@ namespace Workflow.Steps.Console.Read
 
         public Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return Task.FromResult(context.ShouldExecute());
+            return context.ShouldExecuteAsync();
         }
     }
 }

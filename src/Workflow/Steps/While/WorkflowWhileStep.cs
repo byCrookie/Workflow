@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.While
+﻿namespace Workflow.Steps.While
 {
     internal class WorkflowWhileStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
     {
@@ -23,7 +20,7 @@ namespace Workflow.Steps.While
 
         public async Task ExecuteAsync(TContext context)
         {
-            while (context.ShouldExecute() && await _condition(context).ConfigureAwait(true))
+            while (await context.ShouldExecuteAsync().ConfigureAwait(true) && await _condition(context).ConfigureAwait(true))
             {
                 await _subWorkflow.RunAsync(context).ConfigureAwait(true);
             }
@@ -31,7 +28,7 @@ namespace Workflow.Steps.While
 
         public Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return Task.FromResult(context.ShouldExecute());
+            return context.ShouldExecuteAsync();
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.Catch
+﻿namespace Workflow.Steps.Catch
 {
     internal class WorkflowTypeCatchStep<TException, TContext> : 
         IWorkflowStep<TContext> 
@@ -26,9 +23,9 @@ namespace Workflow.Steps.Catch
             context.Exception = null;
         }
 
-        public Task<bool> ShouldExecuteAsync(TContext context)
+        public async Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return Task.FromResult(context.Exception is TException && context.ShouldExecute());
+            return context.Exception is TException && await context.ShouldExecuteAsync().ConfigureAwait(true);
         }
     }
 }

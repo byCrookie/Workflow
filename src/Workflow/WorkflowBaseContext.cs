@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Workflow
+﻿namespace Workflow
 {
-    public class WorkflowBaseContext
+    public abstract class WorkflowBaseContext
     {
-        public Exception Exception { get; set; }
+        public Exception? Exception { get; set; }
         public bool IsStop { get; set; }
 
-        public bool ShouldExecute()
+        public Task<bool> ShouldExecuteAsync()
         {
-            return !IsStop;
+            return Task.FromResult(!IsStop);
         }
 
         public string PropertiesToString<TContext>() where TContext : WorkflowBaseContext
         {
             var context = this as TContext;
-            var properties = context?.GetType().GetProperties().Select(prop => (prop.Name, prop.GetValue(context))) ?? new List<(string, object)>();
-            return string.Join(", ", properties.Select(prop => $"Name: {prop.Item1} Value: {prop.Item2}"));
+            var properties = context?.GetType().GetProperties().Select(prop => new { prop.Name, Value = prop.GetValue(context) });
+            return string.Join(", ", properties?.Select(prop => $"Name: {prop.Name} Value: {prop.Value}") ?? Enumerable.Empty<string>());
         }
     }
 }

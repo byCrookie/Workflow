@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.Stop
+﻿namespace Workflow.Steps.Stop
 {
     internal class WorkflowConditionStopStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
     {
@@ -25,7 +22,8 @@ namespace Workflow.Steps.Stop
 
         public async Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return context.ShouldExecute() && await _condition(context).ConfigureAwait(true);
+            return await context.ShouldExecuteAsync().ConfigureAwait(true)
+                   && await _condition(context).ConfigureAwait(true);
         }
     }
 }

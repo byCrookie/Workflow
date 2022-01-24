@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Workflow.Steps.Then
+﻿namespace Workflow.Steps.Then
 {
     internal class WorkflowStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
     {
@@ -24,7 +21,7 @@ namespace Workflow.Steps.Then
 
         public Task<bool> ShouldExecuteAsync(TContext context)
         {
-            return Task.FromResult(context.ShouldExecute());
+            return context.ShouldExecuteAsync();
         }
     }
 }

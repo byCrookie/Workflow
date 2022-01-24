@@ -15,7 +15,7 @@ internal static class WorkflowPropertyValueSetter<TContext, TProperty>
         );
     }
 
-    public static Task SetAsync(TContext context, TProperty value,
+    public static Task SetAsync(TContext context, TProperty? value,
         Expression<Func<TContext, TProperty>> propertyPicker)
     {
         var prop = (PropertyInfo)((MemberExpression)propertyPicker.Body).Member;

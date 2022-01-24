@@ -1,9 +1,8 @@
-﻿namespace Workflow.Steps.Console.Read
+﻿namespace Workflow.Steps.Console.Read;
+
+public class WorkflowMultiLineOptions
 {
-    public class MultiLineOptions
-    {
-        public string EndOfInput { get; set; } = ":q";
-        public bool RemoveEndOfInput { get; set; } = true;
-        public bool ShouldTrimLines { get; set; } = false;
-    }
+    public string EndOfInput { get; set; } = ":q";
+    public bool RemoveEndOfInput { get; set; } = true;
+    public bool ShouldTrimLines { get; set; } = false;
 }

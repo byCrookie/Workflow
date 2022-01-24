@@ -1,7 +1,6 @@
-namespace Workflow
+namespace Workflow;
+
+public interface IWorkflowParameterStep<in TContext, in TParameter> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
 {
-    public interface IWorkflowParameterStep<in TContext, in TParameter> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
-    {
-        void SetParameter(TParameter parameter);
-    }
+    void SetParameter(TParameter? parameter);
 }

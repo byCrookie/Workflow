@@ -8,20 +8,19 @@ using Workflow.Steps.Then;
 using Workflow.Steps.Throw;
 using Workflow.Steps.While;
 
-namespace Workflow
+namespace Workflow;
+
+public interface IWorkflowBuilder<TContext> :
+    IWorkflowCatchBuilder<TContext>,
+    IWorkflowThrowBuilder<TContext>,
+    IWorkflowStopBuilder<TContext>,
+    IWorkflowWhileBuilder<TContext>,
+    IWorkflowThenBuilder<TContext>,
+    IWorkflowIfElseBuilder<TContext>,
+    IWorkflowIfBuilder<TContext>,
+    IWorkflowWriteBuilder<TContext>,
+    IWorkflowReadBuilder<TContext>
+    where TContext : WorkflowBaseContext
 {
-    public interface IWorkflowBuilder<TContext> :
-        IWorkflowCatchBuilder<TContext>,
-        IWorkflowThrowBuilder<TContext>,
-        IWorkflowStopBuilder<TContext>,
-        IWorkflowWhileBuilder<TContext>,
-        IWorkflowThenBuilder<TContext>,
-        IWorkflowIfElseBuilder<TContext>,
-        IWorkflowIfBuilder<TContext>,
-        IWorkflowWriteBuilder<TContext>,
-        IWorkflowReadBuilder<TContext>
-        where TContext : WorkflowBaseContext
-    {
-        IWorkflow<TContext> Build();
-    }
+    IWorkflow<TContext> Build();
 }

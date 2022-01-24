@@ -1,8 +1,7 @@
-﻿namespace Workflow
+﻿namespace Workflow;
+
+public interface IWorkflow<TContext> where TContext : WorkflowBaseContext
 {
-    public interface IWorkflow<TContext> where TContext : WorkflowBaseContext
-    {
-        void AddStep(IWorkflowStep<TContext> step);
-        Task<TContext> RunAsync(TContext context);
-    }
+    void AddStep(IWorkflowStep<TContext> step);
+    Task<TContext> RunAsync(TContext context);
 }

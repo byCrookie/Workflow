@@ -1,10 +1,9 @@
-﻿namespace Workflow
+﻿namespace Workflow;
+
+internal class WorkflowException<TContext> : Exception where TContext : WorkflowBaseContext
 {
-    internal class WorkflowException<TContext> : Exception where TContext : WorkflowBaseContext
+    public WorkflowException(Exception exception, TContext context, IWorkflowStep<TContext> step) 
+        : base($"Step: {step.GetType().Name}, Context - {context.PropertiesToString<TContext>()}", exception)
     {
-        public WorkflowException(Exception exception, TContext context, IWorkflowStep<TContext> step) 
-            : base($"Step: {step.GetType().Name}, Context - {context.PropertiesToString<TContext>()}", exception)
-        {
-        }
     }
 }

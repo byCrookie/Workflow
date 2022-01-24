@@ -5,7 +5,7 @@ public abstract class WorkflowBaseContext
     internal Exception? Exception { get; set; }
     internal bool IsStop { get; set; }
 
-    internal Task<bool> ShouldExecuteAsync()
+    public Task<bool> ShouldExecuteAsync()
     {
         return Task.FromResult(!IsStop);
     }

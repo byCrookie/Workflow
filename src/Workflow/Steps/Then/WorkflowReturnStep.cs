@@ -27,7 +27,7 @@ internal class WorkflowReturnStep<TContext, TProperty> : IWorkflowReturnStep<TCo
 
     public Task ExecuteAsync(TContext context)
     {
-        return WorkflowPropertyValueSetter<TContext, TProperty>.SetAsync(context, _actionReturn, _propertyPicker);
+        return WorkflowProperty<TContext, TProperty>.SetAsync(context, _actionReturn, _propertyPicker);
     }
 
     public Task<bool> ShouldExecuteAsync(TContext context)

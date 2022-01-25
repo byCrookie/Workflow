@@ -15,7 +15,7 @@ internal class WorkflowReadStep<TContext> : IWorkflowStep<TContext> where TConte
     public Task ExecuteAsync(TContext context)
     {
         var line = System.Console.Read();
-        return WorkflowPropertyValueSetter<TContext, int>.SetAsync(context, line, _propertyPicker);
+        return WorkflowProperty<TContext, int>.SetAsync(context, line, _propertyPicker);
     }
 
     public Task<bool> ShouldExecuteAsync(TContext context)

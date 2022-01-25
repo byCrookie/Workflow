@@ -67,7 +67,7 @@ internal class WorkflowReadMultiLineStep<TContext> : IWorkflowStep<TContext> whe
             value = value.Remove(index, Environment.NewLine.Length);
         }
 
-        return WorkflowPropertyValueSetter<TContext, string>.SetAsync(context, value, _propertyPicker);
+        return WorkflowProperty<TContext, string>.SetAsync(context, value, _propertyPicker);
     }
 
     public Task<bool> ShouldExecuteAsync(TContext context)

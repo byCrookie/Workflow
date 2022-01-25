@@ -15,7 +15,7 @@ internal class WorkflowReadKeyStep<TContext> : IWorkflowStep<TContext> where TCo
     public Task ExecuteAsync(TContext context)
     {
         var key = System.Console.ReadKey();
-        return WorkflowPropertyValueSetter<TContext, ConsoleKeyInfo>.SetAsync(context, key, _propertyPicker);
+        return WorkflowProperty<TContext, ConsoleKeyInfo>.SetAsync(context, key, _propertyPicker);
     }
 
     public Task<bool> ShouldExecuteAsync(TContext context)

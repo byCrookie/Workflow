@@ -38,7 +38,7 @@ internal class WorkflowIfElseIfReturnStep<TContext, TProperty> : IWorkflowIfElse
     {
         if (await _condition(context).ConfigureAwait(true))
         {
-            await WorkflowPropertyValueSetter<TContext, TProperty>.SetAsync(context, _ifStep, _propertyIfPicker).ConfigureAwait(true);
+            await WorkflowProperty<TContext, TProperty>.SetAsync(context, _ifStep, _propertyIfPicker).ConfigureAwait(true);
         }
         else
         {

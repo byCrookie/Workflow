@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Workflow.Tests;
+﻿namespace Workflow.Tests;
 
 public class WorkflowTestContext : WorkflowBaseContext
 {

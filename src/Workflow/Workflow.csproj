@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="buildsdk" Version="1.0.0-pre-202201195058" />
+      <PackageReference Include="buildsdk" Version="1.0.0-pre-202201254712" />
     </ItemGroup>
 
 </Project>

@@ -18,24 +18,24 @@ internal class Workflow<TContext> : IWorkflow<TContext> where TContext: Workflow
 
     public async Task<TContext> RunAsync(TContext context)
     {
-        var doneSteps = new List<IWorkflowStep<TContext>>();
+        var executedSteps = new List<IWorkflowStep<TContext>>();
 
-        while (doneSteps.Count != _steps.Count)
+        while (executedSteps.Count != _steps.Count)
         {
-            await ExecuteStepsAsync(context, doneSteps, _steps).ConfigureAwait(true);
+            await ExecuteStepsAsync(context, executedSteps, _steps).ConfigureAwait(true);
         }
 
         return context;
     }
 
-    private async Task ExecuteStepsAsync(TContext context, ICollection<IWorkflowStep<TContext>> doneSteps,
-        IEnumerable<IWorkflowStep<TContext>> steps)
+    private async Task ExecuteStepsAsync(TContext context, ICollection<IWorkflowStep<TContext>> executedSteps,
+        IEnumerable<IWorkflowStep<TContext>> stepsToExecute)
     {
         try
         {
-            foreach (var step in steps)
+            foreach (var step in stepsToExecute)
             {
-                doneSteps.Add(step);
+                executedSteps.Add(step);
                     
                 if (await step.ShouldExecuteAsync(context).ConfigureAwait(true))
                 {
@@ -43,22 +43,27 @@ internal class Workflow<TContext> : IWorkflow<TContext> where TContext: Workflow
                 }
             }
         }
-        catch (Exception e)
+        catch (Exception exception)
         {
-            var stepsTodo = _steps.Except(doneSteps).ToList();
-            var exception = new WorkflowException<TContext>(e, context, doneSteps.Last());
+            var remainingSteps = _steps.Except(executedSteps).ToList();
+            var workflowException = new WorkflowException<TContext>(exception, context, executedSteps.Last());
 
-            if (stepsTodo.Any(step => step is WorkflowCatchStep<TContext>))
+            if (remainingSteps.Any(step => step is WorkflowCatchStep<TContext>))
             {
-                context.Exception = exception;
-                var catchStep = stepsTodo.First(step => step is WorkflowCatchStep<TContext>);
-                stepsTodo.RemoveRange(0, stepsTodo.IndexOf(catchStep));
-                await ExecuteStepsAsync(context, doneSteps, stepsTodo).ConfigureAwait(true);
+                context.Exception = workflowException;
+                CatchExceptionFirstCatchStep(remainingSteps);
+                await ExecuteStepsAsync(context, executedSteps, remainingSteps).ConfigureAwait(true);
             }
             else
             {
-                throw exception;
+                throw workflowException;
             }
         }
+    }
+
+    private static void CatchExceptionFirstCatchStep(List<IWorkflowStep<TContext>> stepsTodo)
+    {
+        var catchStep = stepsTodo.First(step => step is WorkflowCatchStep<TContext>);
+        stepsTodo.RemoveRange(0, stepsTodo.IndexOf(catchStep));
     }
 }

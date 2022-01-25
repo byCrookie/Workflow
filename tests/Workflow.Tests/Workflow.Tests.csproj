@@ -14,7 +14,7 @@
         <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
         <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
         <PackageReference Include="coverlet.collector" Version="3.1.0" />
-        <PackageReference Include="workflow.autofac" Version="1.0.0-pre-202201254831" />
+        <PackageReference Include="workflow.autofac" Version="1.0.0-pre-202201254451" />
     </ItemGroup>
 
     <ItemGroup>

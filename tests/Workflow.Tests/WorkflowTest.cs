@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Autofac;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Workflow.Factory;
+using Workflow.Autofac;
 
 namespace Workflow.Tests;
 
@@ -17,16 +17,9 @@ public class WorkflowTest
     [TestInitialize]
     public void Initialize()
     {
-        var containerBuilder = new ContainerBuilder();
-        
-        containerBuilder.RegisterGeneric(typeof(WorkflowBuilder<>)).As(typeof(IWorkflowBuilder<>));
-        
-        containerBuilder.RegisterType<WorkflowFactory>().As<IWorkflowFactory>();
-        containerBuilder.RegisterGeneric(typeof(WorkflowFactory<>)).As(typeof(IWorkflowFactory<>));
-        containerBuilder.RegisterGeneric(typeof(WorkflowFactory<,>)).As(typeof(IWorkflowFactory<,>));
-        containerBuilder.RegisterGeneric(typeof(WorkflowFactory<,,>)).As(typeof(IWorkflowFactory<,,>));
-
-        var container = containerBuilder.Build();
+        var container = new ContainerBuilder()
+            .AddWorkflow()
+            .Build();
 
         _workflowBuilder = container.Resolve<IWorkflowBuilder<WorkflowTestContext>>();
     }

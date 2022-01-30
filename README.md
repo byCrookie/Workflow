@@ -16,9 +16,38 @@ Bitcoin (BTC) Donations using Bitcoin (BTC) Network -> 14vZ2rRTEWXhvfLrxSboTN15k
 Workflows make it easy to create a console application flow. Workflow has various methods from reading multiline user content to using custom built steps.
 
 ### Dependency Injection
-There are some classes that have to be registred. You can use [Workflow.Autofac](https://github.com/byCrookie/Workflow.Autofac) as an example or use it directly in your project.
 
-#### Example
+This project includes nuget packages for diffrent dependency injection containers.
+
+* Autofac (Workflow.Autofac)
+* Jab (Workflow.Jab)
+
+#### Autofac
+
+```C#
+public class FrameworkModule : Module
+{
+    protected override void Load(ContainerBuilder builder)
+    {
+        builder.AddWorkflow();
+
+        base.Load(builder);
+    }
+}
+```
+
+#### Jab
+
+```C#
+[ServiceProvider]
+[Import(typeof(IWorkflowModule))]
+[Transient(typeof(IWorkflowTestStep<WorkflowTestContext>), typeof(WorkflowTestStep<WorkflowTestContext>))]
+public partial class CustomServiceProvider
+{
+}
+```
+
+### Example
 ```C#
 var workflow = _workflowBuilder
     .WriteLine(context => $@"{Cuts.Point()} Input type")

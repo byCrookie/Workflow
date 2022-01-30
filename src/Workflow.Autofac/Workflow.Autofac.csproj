@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+
+        <PackageId>Workflow.Autofac</PackageId>
+
+        <Title>Workflow.Autofac</Title>
+        <Authors>byCrookie</Authors>
+        <PackageTags>workflow;dependency;autofac</PackageTags>
+        <Description>A dependency injection extension for workflow to register all components using autofac</Description>
+
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://github.com/byCrookie/Workflow</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/byCrookie/Workflow</RepositoryUrl>
+
+        <Copyright>https://github.com/byCrookie/Workflow/blob/main/LICENSE</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Workflow\Workflow.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Autofac" Version="6.3.0"/>
+        <PackageReference Include="buildsdk" Version="1.0.1-pre-20220129083400"/>
+    </ItemGroup>
+
+</Project>

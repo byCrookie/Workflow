@@ -51,7 +51,7 @@ public class WorkflowTest
             )
             .While(c => c.Counter < 2, whileFlow => whileFlow.Then(c => c.Flow.Add(7)).Then(c => c.Counter++))
             .Build();
-        
+
         var result = await workflow.RunAsync(new WorkflowTestContext()).ConfigureAwait(false);
 
         result.Counter.Should().Be(2);
@@ -61,7 +61,7 @@ public class WorkflowTest
         result.Set3.Should().BeTrue();
         result.Flow.Should().BeEquivalentTo(new List<int>
         {
-            1,2,3,4,5,6,7,7
+            1, 2, 3, 4, 5, 6, 7, 7
         });
     }
 }

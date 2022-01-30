@@ -1,6 +1,10 @@
 # Workflow
 A dynamic workflow library for .NET applications (mainly console).
 
+## Dependencies
+This project relies on following to packages
+* [BuildSdk](https://github.com/byCrookie/BuildSdk)
+
 ## How to use
 :warning: **Packages**: Packages are not working at the moment, please build the project yourself using the sourcecode.
 

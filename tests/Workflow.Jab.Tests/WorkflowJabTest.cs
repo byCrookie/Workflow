@@ -6,12 +6,12 @@ namespace Workflow.Jab.Tests;
 [TestClass]
 public class WorkflowJabTest
 {
-    private ServiceProvider _serviceProvider = null!;
+    private WorkflowServiceProvider _serviceProvider = null!;
 
     [TestInitialize]
     public void Initialize()
     {
-        _serviceProvider = new ServiceProvider();
+        _serviceProvider = new WorkflowServiceProvider();
     }
 
     [TestMethod]

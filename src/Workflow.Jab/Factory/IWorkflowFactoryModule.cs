@@ -11,6 +11,6 @@ namespace Workflow.Jab.Factory;
 [Transient(typeof(IWorkflowFactory<,,,>), typeof(WorkflowFactory<,,,>))]
 [Transient(typeof(IWorkflowFactory<,,,,>), typeof(WorkflowFactory<,,,,>))]
 [Transient(typeof(IWorkflowFactory<,,,,,>), typeof(WorkflowFactory<,,,,,>))]
-internal partial interface IWorkflowFactoryModule
+internal interface IWorkflowFactoryModule
 {
 }

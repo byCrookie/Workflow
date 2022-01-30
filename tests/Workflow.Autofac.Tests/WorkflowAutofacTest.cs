@@ -13,7 +13,7 @@ public class WorkflowAutofacTest
     public void Initialize()
     {
         var containerBuilder = new ContainerBuilder();
-        containerBuilder.RegisterModule<TestModule>();
+        containerBuilder.RegisterModule<WorkflowTestModule>();
         containerBuilder.AddWorkflow();
         _container = containerBuilder.Build();
     }

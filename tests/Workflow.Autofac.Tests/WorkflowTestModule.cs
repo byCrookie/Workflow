@@ -2,7 +2,7 @@
 
 namespace Workflow.Autofac.Tests;
 
-internal class TestModule : Module
+internal class WorkflowTestModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {

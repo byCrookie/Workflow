@@ -7,16 +7,16 @@ internal class WorkflowMessageConditionThrowStep<TException, TContext> :
 {
     private readonly Func<TContext, Task> _action;
     private readonly Func<TContext, Task<bool>> _condition;
-    private readonly string _message;
+    private readonly string? _message;
 
-    public WorkflowMessageConditionThrowStep(Func<TContext, Task<bool>> condition, string message, Func<TContext, Task> action)
+    public WorkflowMessageConditionThrowStep(Func<TContext, Task<bool>> condition, string? message, Func<TContext, Task> action)
     {
         _condition = condition;
         _message = message;
         _action = action;
     }
 
-    public WorkflowMessageConditionThrowStep(Func<TContext, bool> condition, string message, Action<TContext> action)
+    public WorkflowMessageConditionThrowStep(Func<TContext, bool> condition, string? message, Action<TContext> action)
     {
         _condition = context => Task.FromResult(condition(context));
         _action = context => Task.Run(() => action(context));

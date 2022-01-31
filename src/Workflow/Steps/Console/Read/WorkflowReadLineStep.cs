@@ -5,9 +5,9 @@ namespace Workflow.Steps.Console.Read;
 
 internal class WorkflowReadLineStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
 {
-    private readonly Expression<Func<TContext, string>> _propertyPicker;
+    private readonly Expression<Func<TContext, string?>> _propertyPicker;
 
-    public WorkflowReadLineStep(Expression<Func<TContext,string>> propertyPicker)
+    public WorkflowReadLineStep(Expression<Func<TContext,string?>> propertyPicker)
     {
         _propertyPicker = propertyPicker;
     }
@@ -15,7 +15,7 @@ internal class WorkflowReadLineStep<TContext> : IWorkflowStep<TContext> where TC
     public Task ExecuteAsync(TContext context)
     {
         var line = System.Console.ReadLine();
-        return WorkflowProperty<TContext, string>.SetAsync(context, line, _propertyPicker);
+        return WorkflowProperty<TContext, string?>.SetAsync(context, line, _propertyPicker);
     }
 
     public Task<bool> ShouldExecuteAsync(TContext context)

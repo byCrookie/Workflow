@@ -7,7 +7,7 @@ internal class WorkflowReadKeyStep<TContext> : IWorkflowStep<TContext> where TCo
 {
     private readonly Expression<Func<TContext, ConsoleKeyInfo>> _propertyPicker;
 
-    public WorkflowReadKeyStep(Expression<Func<TContext,ConsoleKeyInfo>> propertyPicker)
+    public WorkflowReadKeyStep(Expression<Func<TContext, ConsoleKeyInfo>> propertyPicker)
     {
         _propertyPicker = propertyPicker;
     }

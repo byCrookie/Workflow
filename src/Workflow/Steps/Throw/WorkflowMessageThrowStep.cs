@@ -6,15 +6,15 @@ internal class WorkflowMessageThrowStep<TException, TContext> :
     where TException : Exception
 {
     private readonly Func<TContext, Task> _action;
-    private readonly string _message;
+    private readonly string? _message;
 
-    public WorkflowMessageThrowStep(string message, Func<TContext, Task> action)
+    public WorkflowMessageThrowStep(string? message, Func<TContext, Task> action)
     {
         _message = message;
         _action = action;
     }
 
-    public WorkflowMessageThrowStep(string message, Action<TContext> action)
+    public WorkflowMessageThrowStep(string? message, Action<TContext> action)
     {
         _message = message;
         _action = context => Task.Run(() => action(context));

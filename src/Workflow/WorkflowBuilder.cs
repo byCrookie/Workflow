@@ -74,25 +74,25 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         return this;
     }
 
-    public IWorkflowBuilder<TContext> Throw<TException>(string message, Action<TContext> action) where TException: Exception
+    public IWorkflowBuilder<TContext> Throw<TException>(string? message, Action<TContext> action) where TException: Exception
     {
         _workflow.AddStep(new WorkflowMessageThrowStep<TException, TContext>(message, action));
         return this;
     }
 
-    public IWorkflowBuilder<TContext> ThrowAsync<TException>(string message, Func<TContext, Task> action) where TException: Exception
+    public IWorkflowBuilder<TContext> ThrowAsync<TException>(string? message, Func<TContext, Task> action) where TException: Exception
     {
         _workflow.AddStep(new WorkflowMessageThrowStep<TException, TContext>(message, action));
         return this;
     }
 
-    public IWorkflowBuilder<TContext> Throw<TException>(Func<TContext, bool> condition, string message, Action<TContext> action) where TException : Exception
+    public IWorkflowBuilder<TContext> Throw<TException>(Func<TContext, bool> condition, string? message, Action<TContext> action) where TException : Exception
     {
         _workflow.AddStep(new WorkflowMessageConditionThrowStep<TException, TContext>(condition, message, action));
         return this;
     }
 
-    public IWorkflowBuilder<TContext> ThrowAsync<TException>(Func<TContext, Task<bool>> condition, string message, Func<TContext, Task> action) where TException : Exception
+    public IWorkflowBuilder<TContext> ThrowAsync<TException>(Func<TContext, Task<bool>> condition, string? message, Func<TContext, Task> action) where TException : Exception
     {
         _workflow.AddStep(new WorkflowMessageConditionThrowStep<TException, TContext>(condition, message, action));
         return this;
@@ -240,31 +240,31 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         return this;
     }
 
-    public IWorkflowBuilder<TContext> WriteLine(Func<TContext, string> action)
+    public IWorkflowBuilder<TContext> WriteLine(Func<TContext, string?> action)
     {
         _workflow.AddStep(new WorkflowWriteLineStep<TContext>(action));
         return this;
     }
 
-    public IWorkflowBuilder<TContext> WriteLineAsync(Func<TContext, Task<string>> action)
+    public IWorkflowBuilder<TContext> WriteLineAsync(Func<TContext, Task<string?>> action)
     {
         _workflow.AddStep(new WorkflowWriteLineStep<TContext>(action));
         return this;
     }
 
-    public IWorkflowBuilder<TContext> Write(Func<TContext, string> action)
+    public IWorkflowBuilder<TContext> Write(Func<TContext, string?> action)
     {
         _workflow.AddStep(new WorkflowWriteStep<TContext>(action));
         return this;
     }
 
-    public IWorkflowBuilder<TContext> WriteAsync(Func<TContext, Task<string>> action)
+    public IWorkflowBuilder<TContext> WriteAsync(Func<TContext, Task<string?>> action)
     {
         _workflow.AddStep(new WorkflowWriteStep<TContext>(action));
         return this;
     }
         
-    public IWorkflowBuilder<TContext> ReadLine(Expression<Func<TContext, string>> propertyPicker)
+    public IWorkflowBuilder<TContext> ReadLine(Expression<Func<TContext, string?>> propertyPicker)
     {
         _workflow.AddStep(new WorkflowReadLineStep<TContext>(propertyPicker));
         return this;
@@ -282,7 +282,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         return this;
     }
 
-    public IWorkflowBuilder<TContext> ReadMultiLine(Expression<Func<TContext, string>> propertyPicker, Action<WorkflowMultiLineOptions>? options = null)
+    public IWorkflowBuilder<TContext> ReadMultiLine(Expression<Func<TContext, string?>> propertyPicker, Action<WorkflowMultiLineOptions>? options = null)
     {
         var multiLineOptions = new WorkflowMultiLineOptions();
         options?.Invoke(multiLineOptions);

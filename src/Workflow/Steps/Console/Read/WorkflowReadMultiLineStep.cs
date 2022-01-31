@@ -6,10 +6,10 @@ namespace Workflow.Steps.Console.Read;
 
 internal class WorkflowReadMultiLineStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
 {
-    private readonly Expression<Func<TContext, string>> _propertyPicker;
+    private readonly Expression<Func<TContext, string?>> _propertyPicker;
     private readonly WorkflowMultiLineOptions _options;
 
-    public WorkflowReadMultiLineStep(Expression<Func<TContext, string>> propertyPicker, WorkflowMultiLineOptions options)
+    public WorkflowReadMultiLineStep(Expression<Func<TContext, string?>> propertyPicker, WorkflowMultiLineOptions options)
     {
         _propertyPicker = propertyPicker;
         _options = options;
@@ -67,7 +67,7 @@ internal class WorkflowReadMultiLineStep<TContext> : IWorkflowStep<TContext> whe
             value = value.Remove(index, Environment.NewLine.Length);
         }
 
-        return WorkflowProperty<TContext, string>.SetAsync(context, value, _propertyPicker);
+        return WorkflowProperty<TContext, string?>.SetAsync(context, value, _propertyPicker);
     }
 
     public Task<bool> ShouldExecuteAsync(TContext context)

@@ -2,14 +2,14 @@
 
 internal class WorkflowWriteStep<TContext> : IWorkflowStep<TContext> where TContext : WorkflowBaseContext
 {
-    private readonly Func<TContext, Task<string>> _action;
+    private readonly Func<TContext, Task<string?>> _action;
 
-    public WorkflowWriteStep(Func<TContext, Task<string>> action)
+    public WorkflowWriteStep(Func<TContext, Task<string?>> action)
     {
         _action = action;
     }
 
-    public WorkflowWriteStep(Func<TContext, string> action)
+    public WorkflowWriteStep(Func<TContext, string?> action)
     {
         _action = context => Task.FromResult(action(context));
     }

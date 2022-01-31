@@ -21,10 +21,7 @@
     <ItemGroup>
         <PackageReference Include="Autofac" Version="6.3.0" />
         <PackageReference Include="buildsdk" Version="1.0.2-pre-20220130032840" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Workflow\Workflow.csproj" />
+        <PackageReference Include="workflow" Version="1.0.2-pre-20220131073327" />
     </ItemGroup>
 
 </Project>

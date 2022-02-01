@@ -22,6 +22,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\Workflow.Autofac\Workflow.Autofac.csproj" />
+      <ProjectReference Include="..\..\src\Workflow\Workflow.csproj" />
     </ItemGroup>
 
 </Project>

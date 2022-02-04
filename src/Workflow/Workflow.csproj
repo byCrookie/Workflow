@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="buildsdk" Version="1.0.2-pre-20220204091210" />
+      <PackageReference Include="buildsdk" Version="1.0.2-pre-20220204094709" />
       <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
     </ItemGroup>
 

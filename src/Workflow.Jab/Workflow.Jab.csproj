@@ -19,12 +19,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="buildsdk" Version="1.0.2-pre-20220204091210"/>
-        <PackageReference Include="Jab" Version="0.6.3"/>
+        <PackageReference Include="buildsdk" Version="1.0.2-pre-20220204094709" />
+        <PackageReference Include="Jab" Version="0.6.3" />
     </ItemGroup>
     
     <ItemGroup>
-        <ProjectReference Include="..\Workflow\Workflow.csproj"/>
+        <ProjectReference Include="..\Workflow\Workflow.csproj" />
     </ItemGroup>
 
 </Project>

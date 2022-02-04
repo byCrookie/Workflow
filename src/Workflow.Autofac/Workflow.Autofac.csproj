@@ -19,12 +19,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac" Version="6.3.0" />
-        <PackageReference Include="buildsdk" Version="1.0.2-pre-20220130032840" />
+        <PackageReference Include="Autofac" Version="6.3.0"/>
+        <PackageReference Include="buildsdk" Version="1.0.2-pre-20220204091210"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Workflow\Workflow.csproj" PrivateAssets="all" />
+        <ProjectReference Include="..\Workflow\Workflow.csproj"/>
     </ItemGroup>
 
 </Project>

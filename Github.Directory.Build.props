@@ -1,0 +1,7 @@
+<Project>
+    <PropertyGroup>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <PublishPackage>false</PublishPackage>
+        <VersionPrefix>1.0.3</VersionPrefix>
+    </PropertyGroup>
+</Project>

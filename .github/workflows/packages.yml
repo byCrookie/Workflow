@@ -20,7 +20,6 @@ jobs:
         run: |
           Remove-Item Directory.Build.props
           Rename-Item -Path Github.Directory.Build.props -NewName Directory.Build.props
-          cd .\Workflow
           dotnet build -c Release
           dotnet pack -c Release -o packages\ --include-source --include-symbols --no-build
 

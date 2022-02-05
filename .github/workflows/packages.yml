@@ -35,4 +35,4 @@ jobs:
           dotnet pack -c Release -o packages\ --include-source --include-symbols
 
       - name: Push NuGet Packages To Github Packages
-        run: nuget push .\Workflow\packages\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source github -SkipDuplicate
+        run: nuget push .\packages\*.nupkg -ApiKey ${{ secrets.GITHUB_TOKEN }} -Source github -SkipDuplicate

@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="buildsdk" Version="1.0.3-pre-202202050835" />
+        <PackageReference Include="buildsdk" Version="1.0.4-pre-202202090710" />
         <PackageReference Include="Jab" Version="0.6.3" />
     </ItemGroup>
     

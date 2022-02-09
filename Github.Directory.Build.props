@@ -2,6 +2,6 @@
     <PropertyGroup>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <PublishPackage>false</PublishPackage>
-        <VersionPrefix>1.0.3</VersionPrefix>
+        <VersionPrefix>1.0.4</VersionPrefix>
     </PropertyGroup>
 </Project>

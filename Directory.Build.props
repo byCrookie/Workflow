@@ -4,6 +4,6 @@
         <PublishPackage>true</PublishPackage>
         <PackagePublishType>local</PackagePublishType>
         <PackagePublishLocalLocation>M:\Development\Nuget\Packages</PackagePublishLocalLocation>
-        <VersionPrefix>1.0.4</VersionPrefix>
+        <VersionPrefix>1.0.5</VersionPrefix>
     </PropertyGroup>
 </Project>

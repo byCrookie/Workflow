@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
 
-        <PackageId>Workflow.Autofac</PackageId>
+        <PackageId>byCrookie.Workflow.Autofac</PackageId>
 
         <Title>Workflow.Autofac</Title>
         <Authors>byCrookie</Authors>
@@ -20,7 +20,7 @@
 
     <ItemGroup>
         <PackageReference Include="Autofac" Version="6.3.0" />
-        <PackageReference Include="nugetsdk" Version="1.0.5-pre-202203190546" />
+        <PackageReference Include="bycrookie.nugetsdk" Version="1.0.6-pre-202203190600" />
     </ItemGroup>
 
     <ItemGroup>

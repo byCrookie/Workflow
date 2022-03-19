@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
 
-        <PackageId>Workflow.Jab</PackageId>
+        <PackageId>byCrookie.Workflow.Jab</PackageId>
 
         <Title>Workflow.Jab</Title>
         <Authors>byCrookie</Authors>
@@ -19,8 +19,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="bycrookie.nugetsdk" Version="1.0.6-pre-202203190600" />
         <PackageReference Include="Jab" Version="0.6.3" />
-        <PackageReference Include="nugetsdk" Version="1.0.5-pre-202203190546" />
     </ItemGroup>
     
     <ItemGroup>

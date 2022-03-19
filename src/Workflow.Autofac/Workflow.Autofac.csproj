@@ -20,7 +20,7 @@
 
     <ItemGroup>
         <PackageReference Include="Autofac" Version="6.3.0" />
-        <PackageReference Include="buildsdk" Version="1.0.4-pre-202202090710" />
+        <PackageReference Include="nugetsdk" Version="1.0.4-pre-202203190520" />
     </ItemGroup>
 
     <ItemGroup>

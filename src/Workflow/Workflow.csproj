@@ -19,8 +19,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="buildsdk" Version="1.0.4-pre-202202090710" />
       <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
+      <PackageReference Include="nugetsdk" Version="1.0.4-pre-202203190520" />
     </ItemGroup>
 
 </Project>

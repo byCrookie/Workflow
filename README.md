@@ -1,9 +1,10 @@
 # Workflow
 A dynamic workflow library for .NET applications (mainly console).
 
-## Dependencies
+## Dependencies & Acknowledgements
 This project relies on following to packages
-* [BuildSdk](https://github.com/byCrookie/BuildSdk)
+* BuildSdk: https://github.com/byCrookie/BuildSdk
+* Jab Dependency-Injection: https://github.com/pakrym/jab
 
 ## How to use
 
@@ -44,7 +45,8 @@ All contributions are welcome! If you have any issues or feature requests, eithe
 ## Donation
 If you like this project, feel free to donate and support the further development. Thank you.
 
-Bitcoin (BTC) Donations using Bitcoin (BTC) Network -> 14vZ2rRTEWXhvfLrxSboTN15k5XuRL1AHq 
+* Bitcoin (BTC) Donations using Bitcoin (BTC) Network -> bc1qygqya2w3hgpvy8hupctfkv5x06l69ydq4su2e2
+* Ethereum (ETH) Donations using Ethereum (ETH) Network -> 0x1C0416cC1DDaAEEb3017D4b8Dcd3f0B82f4d94C1
 
 ## Docs
 Workflows make it easy to create a console application flow. Workflow has various methods from reading multiline user content to using custom built steps.

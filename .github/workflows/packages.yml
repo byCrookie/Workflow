@@ -22,15 +22,22 @@ jobs:
       - name: Remove Github NuGet Source
         run: |
           dotnet nuget remove source localPackages
-          dotnet nuget remove source github
 
       - name: Add Github NuGet Source
         run: dotnet nuget add source --username byCrookie --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/byCrookie/index.json"
 
-      - name: Generate Nuget Packages
+      - name: Use Github Build Props
         run: |
           Remove-Item Directory.Build.props
           Rename-Item -Path Github.Directory.Build.props -NewName Directory.Build.props
+          
+      - name: Use Github Packages Props
+        run: |
+          Remove-Item Directory.Packages.props
+          Rename-Item -Path Github.Directory.Packages.props -NewName Directory.Packages.props
+
+      - name: Generate Nuget Packages
+        run: |
           dotnet build -c Release
           dotnet pack -c Release -o packages\ --include-source --include-symbols
 

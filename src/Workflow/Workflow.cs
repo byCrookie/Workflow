@@ -2,7 +2,7 @@
 
 namespace Workflow;
 
-internal class Workflow<TContext> : IWorkflow<TContext> where TContext: WorkflowBaseContext
+internal class Workflow<TContext> : IInternalWorkflow<TContext> where TContext: WorkflowBaseContext
 {
     private readonly List<IWorkflowStep<TContext>> _steps;
 

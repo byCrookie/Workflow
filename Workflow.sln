@@ -16,6 +16,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.Autofac.Tests", "t
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.Jab.Tests", "tests\Workflow.Jab.Tests\Workflow.Jab.Tests.csproj", "{55F594E8-431D-463B-85AC-E71A2FC2284C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{C9E01B7B-93D8-4944-954C-8EA56C473C54}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Github.Directory.Build.props = Github.Directory.Build.props
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{DB289CED-64CC-4345-9EF3-2A3FD60E0A03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{640CF38C-85BF-437C-8A27-7FC9C756BF00}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\packages.yml = .github\workflows\packages.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +45,8 @@ Global
 		{B235E96D-AE60-41D5-8BBB-D830325A07FC} = {BE37EDA2-EFC2-4A88-9468-BC5F64B790EE}
 		{07D83C58-DB4F-4595-9F49-A8E4FAF8C14C} = {581DCCCB-62E2-466D-825B-454AA48CBAFD}
 		{55F594E8-431D-463B-85AC-E71A2FC2284C} = {581DCCCB-62E2-466D-825B-454AA48CBAFD}
+		{DB289CED-64CC-4345-9EF3-2A3FD60E0A03} = {C9E01B7B-93D8-4944-954C-8EA56C473C54}
+		{640CF38C-85BF-437C-8A27-7FC9C756BF00} = {DB289CED-64CC-4345-9EF3-2A3FD60E0A03}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E1AB2BB3-BE5E-42A7-97A0-AAC3D92CCD98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

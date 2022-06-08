@@ -18,7 +18,7 @@ namespace Workflow;
 public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TContext : WorkflowBaseContext
 {
     private readonly IWorkflowFactory _workflowFactory;
-    private IWorkflow<TContext> _workflow;
+    private IInternalWorkflow<TContext> _workflow;
 
     public WorkflowBuilder(IWorkflowFactory workflowFactory)
     {
@@ -232,7 +232,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         return this;
     }
         
-    public IWorkflowBuilder<TContext> IfAsync<TStep>(Func<TContext, bool> condition) where TStep : IWorkflowStep<TContext>
+    public IWorkflowBuilder<TContext> If<TStep>(Func<TContext, bool> condition) where TStep : IWorkflowStep<TContext>
     {
         var step = _workflowFactory.Create<TStep>();
         var conditionStep = new WorkflowConditionStep<TContext>(condition, step.ExecuteAsync);

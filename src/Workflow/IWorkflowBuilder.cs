@@ -10,6 +10,10 @@ using Workflow.Steps.While;
 
 namespace Workflow;
 
+/// <summary>
+/// Configure the workflow with different steps.
+/// </summary>
+/// <typeparam name="TContext">Type of custom context implementation.</typeparam>
 public interface IWorkflowBuilder<TContext> :
     IWorkflowCatchBuilder<TContext>,
     IWorkflowThrowBuilder<TContext>,
@@ -22,5 +26,10 @@ public interface IWorkflowBuilder<TContext> :
     IWorkflowReadBuilder<TContext>
     where TContext : WorkflowBaseContext
 {
+    /// <summary>
+    /// Builds the configured workflow.
+    /// Builder is not thread-safe. Never call same instance in parallel.
+    /// </summary>
+    /// <returns>Workflow with steps to execute.</returns>
     IWorkflow<TContext> Build();
 }

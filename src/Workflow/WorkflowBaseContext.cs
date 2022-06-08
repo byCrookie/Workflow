@@ -1,5 +1,8 @@
 ﻿namespace Workflow;
 
+/// <summary>
+/// Context to exchange data between different steps. Custom implementation allows for additional properties. 
+/// </summary>
 public abstract class WorkflowBaseContext
 {
     internal Exception? Exception { get; set; }

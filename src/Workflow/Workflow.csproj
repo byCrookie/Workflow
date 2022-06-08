@@ -13,14 +13,16 @@
         <RepositoryType>git</RepositoryType>
         <PackageProjectUrl>https://github.com/byCrookie/Workflow</PackageProjectUrl>
         <RepositoryUrl>https://github.com/byCrookie/Workflow</RepositoryUrl>
-        
+
         <Copyright>https://github.com/byCrookie/Workflow/blob/main/LICENSE</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="bycrookie.nugetsdk" Version="1.0.6-pre-202203190600" />
-      <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
+        <PackageReference Include="byCrookie.NugetSdk"/>
+        <PackageReference Include="JetBrains.Annotations"/>
     </ItemGroup>
 
 </Project>

@@ -4,6 +4,9 @@
         <PublishPackage>true</PublishPackage>
         <PackagePublishType>local</PackagePublishType>
         <PackagePublishLocalLocation>M:\Development\Nuget\Packages</PackagePublishLocalLocation>
-        <VersionPrefix>1.0.6</VersionPrefix>
+        <NextVersionType>Patch</NextVersionType>
+        <MajorVersion>1</MajorVersion>
+        <MinorVersion>0</MinorVersion>
+        <PatchVersion>7</PatchVersion>
     </PropertyGroup>
 </Project>

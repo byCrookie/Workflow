@@ -16,11 +16,13 @@
 
         <Copyright>https://github.com/byCrookie/Workflow/blob/main/LICENSE</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac" Version="6.3.0" />
-        <PackageReference Include="bycrookie.nugetsdk" Version="1.0.6-pre-202203190600" />
+        <PackageReference Include="Autofac" />
+        <PackageReference Include="byCrookie.NugetSdk" />
     </ItemGroup>
 
     <ItemGroup>

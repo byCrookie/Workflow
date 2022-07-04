@@ -5,6 +5,6 @@
         <NextVersionType>Patch</NextVersionType>
         <MajorVersion>1</MajorVersion>
         <MinorVersion>0</MinorVersion>
-        <PatchVersion>7</PatchVersion>
+        <PatchVersion>9</PatchVersion>
     </PropertyGroup>
 </Project>

@@ -1,9 +1,9 @@
 ﻿using Autofac;
-using Workflow.Factory;
+using DependencyInjection.Factory;
 
 namespace Workflow.Autofac.Factory;
 
-internal class WorkflowFactory : IWorkflowFactory
+internal class WorkflowFactory : IFactory
 {
     private readonly ILifetimeScope _lifetimeScope;
 
@@ -16,9 +16,19 @@ internal class WorkflowFactory : IWorkflowFactory
     {
         return _lifetimeScope.Resolve<T>();
     }
+
+    public object Create(Type type)
+    {
+        return _lifetimeScope.Resolve(type);
+    }
+
+    public T Create<T>(Type type) where T : notnull
+    {
+        return _lifetimeScope.Resolve<T>();
+    }
 }
     
-internal class WorkflowFactory<T> : IWorkflowFactory<T> where T : notnull
+internal class WorkflowFactory<T> : IFactory<T> where T : notnull
 {
     private readonly Func<T> _factory;
 
@@ -33,7 +43,7 @@ internal class WorkflowFactory<T> : IWorkflowFactory<T> where T : notnull
     }
 }
     
-internal class WorkflowFactory<TParameter, T> : IWorkflowFactory<TParameter, T> where T : notnull
+internal class WorkflowFactory<TParameter, T> : IFactory<TParameter, T> where T : notnull
 {
     private readonly Func<TParameter, T> _factory;
 
@@ -48,7 +58,7 @@ internal class WorkflowFactory<TParameter, T> : IWorkflowFactory<TParameter, T> 
     }
 }
     
-internal class WorkflowFactory<TParameter1, TParameter2, T> : IWorkflowFactory<TParameter1, TParameter2, T> where T : notnull
+internal class WorkflowFactory<TParameter1, TParameter2, T> : IFactory<TParameter1, TParameter2, T> where T : notnull
 {
     private readonly Func<TParameter1, TParameter2, T> _factory;
 
@@ -63,7 +73,7 @@ internal class WorkflowFactory<TParameter1, TParameter2, T> : IWorkflowFactory<T
     }
 }
     
-internal class WorkflowFactory<TParameter1, TParameter2, TParameter3, T> : IWorkflowFactory<TParameter1, TParameter2, TParameter3, T> where T : notnull
+internal class WorkflowFactory<TParameter1, TParameter2, TParameter3, T> : IFactory<TParameter1, TParameter2, TParameter3, T> where T : notnull
 {
     private readonly Func<TParameter1, TParameter2, TParameter3, T> _factory;
 
@@ -78,7 +88,7 @@ internal class WorkflowFactory<TParameter1, TParameter2, TParameter3, T> : IWork
     }
 }
     
-internal class WorkflowFactory<TParameter1, TParameter2, TParameter3, TParameter4, T> : IWorkflowFactory<TParameter1, TParameter2, TParameter3, TParameter4, T> where T : notnull
+internal class WorkflowFactory<TParameter1, TParameter2, TParameter3, TParameter4, T> : IFactory<TParameter1, TParameter2, TParameter3, TParameter4, T> where T : notnull
 {
     private readonly Func<TParameter1, TParameter2, TParameter3, TParameter4, T> _factory;
 
@@ -93,7 +103,7 @@ internal class WorkflowFactory<TParameter1, TParameter2, TParameter3, TParameter
     }
 }
     
-internal class WorkflowFactory<TParameter1, TParameter2, TParameter3, TParameter4, TParameter5, T> : IWorkflowFactory<TParameter1, TParameter2, TParameter3, TParameter4, TParameter5, T> where T : notnull
+internal class WorkflowFactory<TParameter1, TParameter2, TParameter3, TParameter4, TParameter5, T> : IFactory<TParameter1, TParameter2, TParameter3, TParameter4, TParameter5, T> where T : notnull
 {
     private readonly Func<TParameter1, TParameter2, TParameter3, TParameter4, TParameter5, T> _factory;
 

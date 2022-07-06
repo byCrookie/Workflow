@@ -1,6 +1,8 @@
 <Project>
     <ItemGroup>
         <PackageVersion Include="byCrookie.NugetSdk" Version="1.0.10"/>
+        <PackageVersion Include="byCrookie.DependencyInjection" Version="1.0.0"/>
+        <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0"/>
         <PackageVersion Include="JetBrains.Annotations" Version="2022.1.0"/>
         <PackageVersion Include="Autofac" Version="6.4.0" />
         <PackageVersion Include="Jab" Version="0.8.2" />

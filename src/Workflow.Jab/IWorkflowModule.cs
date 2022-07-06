@@ -1,5 +1,5 @@
-﻿using Jab;
-using Workflow.Jab.Factory;
+﻿using DependencyInjection;
+using Jab;
 
 namespace Workflow.Jab;
 
@@ -9,7 +9,7 @@ namespace Workflow.Jab;
 /// Additionally: All custom workflow steps have to be registered for their context implementation separately.
 /// </summary>
 [ServiceProviderModule]
-[Import(typeof(IWorkflowFactoryModule))]
+[Import(typeof(IDependencyInjectionModule))]
 [Transient(typeof(IWorkflowBuilder<>), typeof(WorkflowBuilder<>))]
 public interface IWorkflowModule
 {

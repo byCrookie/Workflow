@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Workflow.Factory;
+using DependencyInjection.Factory;
 
 namespace Workflow.Autofac.Factory;
 
@@ -7,13 +7,13 @@ internal class WorkflowFactoryModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
-        builder.RegisterType<WorkflowFactory>().As<IWorkflowFactory>();
-        builder.RegisterGeneric(typeof(WorkflowFactory<>)).As(typeof(IWorkflowFactory<>));
-        builder.RegisterGeneric(typeof(WorkflowFactory<,>)).As(typeof(IWorkflowFactory<,>));
-        builder.RegisterGeneric(typeof(WorkflowFactory<,,>)).As(typeof(IWorkflowFactory<,,>));
-        builder.RegisterGeneric(typeof(WorkflowFactory<,,,>)).As(typeof(IWorkflowFactory<,,,>));
-        builder.RegisterGeneric(typeof(WorkflowFactory<,,,,>)).As(typeof(IWorkflowFactory<,,,,>));
-        builder.RegisterGeneric(typeof(WorkflowFactory<,,,,,>)).As(typeof(IWorkflowFactory<,,,,,>));
+        builder.RegisterType<WorkflowFactory>().As<IFactory>();
+        builder.RegisterGeneric(typeof(WorkflowFactory<>)).As(typeof(IFactory<>));
+        builder.RegisterGeneric(typeof(WorkflowFactory<,>)).As(typeof(IFactory<,>));
+        builder.RegisterGeneric(typeof(WorkflowFactory<,,>)).As(typeof(IFactory<,,>));
+        builder.RegisterGeneric(typeof(WorkflowFactory<,,,>)).As(typeof(IFactory<,,,>));
+        builder.RegisterGeneric(typeof(WorkflowFactory<,,,,>)).As(typeof(IFactory<,,,,>));
+        builder.RegisterGeneric(typeof(WorkflowFactory<,,,,,>)).As(typeof(IFactory<,,,,,>));
             
         base.Load(builder);
     }

@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using Workflow.Factory;
+using DependencyInjection.Factory;
 using Workflow.Steps.Catch;
 using Workflow.Steps.Console.Read;
 using Workflow.Steps.Console.Write;
@@ -17,12 +17,12 @@ namespace Workflow;
 
 public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TContext : WorkflowBaseContext
 {
-    private readonly IWorkflowFactory _workflowFactory;
+    private readonly IFactory _factory;
     private IInternalWorkflow<TContext> _workflow;
 
-    public WorkflowBuilder(IWorkflowFactory workflowFactory)
+    public WorkflowBuilder(IFactory factory)
     {
-        _workflowFactory = workflowFactory;
+        _factory = factory;
         _workflow = new Workflow<TContext>();
     }
 
@@ -148,7 +148,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
 
     public IWorkflowBuilder<TContext> While(Func<TContext, bool> condition, Action<IWorkflowBuilder<TContext>> configure)
     {
-        var builder = _workflowFactory.Create<IWorkflowBuilder<TContext>>();
+        var builder = _factory.Create<IWorkflowBuilder<TContext>>();
         configure(builder);
         var subWorkflow = builder.Build();
         _workflow.AddStep(new WorkflowWhileStep<TContext>(condition, subWorkflow));
@@ -157,7 +157,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
 
     public IWorkflowBuilder<TContext> WhileAsync(Func<TContext, Task<bool>> condition, Action<IWorkflowBuilder<TContext>> configure)
     {
-        var builder = _workflowFactory.Create<IWorkflowBuilder<TContext>>();
+        var builder = _factory.Create<IWorkflowBuilder<TContext>>();
         configure(builder);
         var subWorkflow = builder.Build();
         _workflow.AddStep(new WorkflowWhileStep<TContext>(condition, subWorkflow));
@@ -190,13 +190,13 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
 
     public IWorkflowBuilder<TContext> ThenAsync<TStep>() where TStep : IWorkflowStep<TContext>
     {
-        _workflow.AddStep(_workflowFactory.Create<TStep>());
+        _workflow.AddStep(_factory.Create<TStep>());
         return this;
     }
 
     public IWorkflowBuilder<TContext> ThenAsync<TStep, TParameter>(TParameter? parameter) where TStep : IWorkflowParameterStep<TContext, TParameter>
     {
-        var step = _workflowFactory.Create<TStep>();
+        var step = _factory.Create<TStep>();
         step.SetParameter(parameter ?? Activator.CreateInstance<TParameter>());
         _workflow.AddStep(step);
         return this;
@@ -204,7 +204,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
 
     public IWorkflowBuilder<TContext> ThenAsync<TStep, TConfig>(Action<TConfig>? configure) where TStep : IWorkflowOptionsStep<TContext, TConfig>
     {
-        var step = _workflowFactory.Create<TStep>();
+        var step = _factory.Create<TStep>();
         var configuration = Activator.CreateInstance<TConfig>();
         configure?.Invoke(configuration);
         step.SetOptions(configuration);
@@ -226,7 +226,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
 
     public IWorkflowBuilder<TContext> IfAsync<TStep>(Func<TContext, Task<bool>> condition) where TStep : IWorkflowStep<TContext>
     {
-        var step = _workflowFactory.Create<TStep>();
+        var step = _factory.Create<TStep>();
         var conditionStep = new WorkflowConditionStep<TContext>(condition, step.ExecuteAsync);
         _workflow.AddStep(conditionStep);
         return this;
@@ -234,7 +234,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         
     public IWorkflowBuilder<TContext> If<TStep>(Func<TContext, bool> condition) where TStep : IWorkflowStep<TContext>
     {
-        var step = _workflowFactory.Create<TStep>();
+        var step = _factory.Create<TStep>();
         var conditionStep = new WorkflowConditionStep<TContext>(condition, step.ExecuteAsync);
         _workflow.AddStep(conditionStep);
         return this;
@@ -304,7 +304,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
 
     public IWorkflowBuilder<TContext> IfFlow(Func<TContext, bool> condition, Action<IWorkflowBuilder<TContext>> configure)
     {
-        var builder = _workflowFactory.Create<IWorkflowBuilder<TContext>>();
+        var builder = _factory.Create<IWorkflowBuilder<TContext>>();
         configure(builder);
         var subWorkflow = builder.Build();
         _workflow.AddStep(new WorkflowFlowConditionStep<TContext>(condition, subWorkflow));
@@ -313,7 +313,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
 
     public IWorkflowBuilder<TContext> IfFlowAsync(Func<TContext, Task<bool>> condition, Action<IWorkflowBuilder<TContext>> configure)
     {
-        var builder = _workflowFactory.Create<IWorkflowBuilder<TContext>>();
+        var builder = _factory.Create<IWorkflowBuilder<TContext>>();
         configure(builder);
         var subWorkflow = builder.Build();
         _workflow.AddStep(new WorkflowFlowConditionStep<TContext>(condition, subWorkflow));
@@ -414,15 +414,15 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         where TIfStep : IWorkflowStep<TContext>
         where TElseStep : IWorkflowStep<TContext>
     {
-        var ifStep = _workflowFactory.Create<TIfStep>();
-        var elseStep = _workflowFactory.Create<TElseStep>();
+        var ifStep = _factory.Create<TIfStep>();
+        var elseStep = _factory.Create<TElseStep>();
         _workflow.AddStep(new WorkflowIfElseStep<TContext>(condition, ifStep.ExecuteAsync, elseStep.ExecuteAsync));
         return this;
     }
 
     public IWorkflowBuilder<TContext> IfElseFlow(Func<TContext, bool> condition, Action<IWorkflowBuilder<TContext>> configureIf, Action<IWorkflowBuilder<TContext>> configureElse)
     {
-        var builder = _workflowFactory.Create<IWorkflowBuilder<TContext>>();
+        var builder = _factory.Create<IWorkflowBuilder<TContext>>();
 
         configureIf(builder);
         var subWorkflowIf = builder.Build();
@@ -437,7 +437,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
 
     public IWorkflowBuilder<TContext> IfElseFlowAsync(Func<TContext, Task<bool>> condition, Action<IWorkflowBuilder<TContext>> configureIf, Action<IWorkflowBuilder<TContext>> configureElse)
     {
-        var builder = _workflowFactory.Create<IWorkflowBuilder<TContext>>();
+        var builder = _factory.Create<IWorkflowBuilder<TContext>>();
 
         configureIf(builder);
         var subWorkflowIf = builder.Build();

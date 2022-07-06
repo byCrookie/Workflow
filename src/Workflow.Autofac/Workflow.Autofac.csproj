@@ -23,6 +23,7 @@
     <ItemGroup>
         <PackageReference Include="Autofac" />
         <PackageReference Include="byCrookie.NugetSdk" />
+        <PackageReference Include="byCrookie.DependencyInjection" />
     </ItemGroup>
 
     <ItemGroup>

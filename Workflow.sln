@@ -34,6 +34,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\packages.yml = .github\workflows\packages.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow.DependencyInjection", "src\Workflow.DependencyInjection\Workflow.DependencyInjection.csproj", "{23D37B0A-1FBB-472D-BFEE-7DFDC2EC1BAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,7 @@ Global
 		{55F594E8-431D-463B-85AC-E71A2FC2284C} = {581DCCCB-62E2-466D-825B-454AA48CBAFD}
 		{DB289CED-64CC-4345-9EF3-2A3FD60E0A03} = {C9E01B7B-93D8-4944-954C-8EA56C473C54}
 		{640CF38C-85BF-437C-8A27-7FC9C756BF00} = {DB289CED-64CC-4345-9EF3-2A3FD60E0A03}
+		{23D37B0A-1FBB-472D-BFEE-7DFDC2EC1BAD} = {BE37EDA2-EFC2-4A88-9468-BC5F64B790EE}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E1AB2BB3-BE5E-42A7-97A0-AAC3D92CCD98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -74,5 +77,9 @@ Global
 		{55F594E8-431D-463B-85AC-E71A2FC2284C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55F594E8-431D-463B-85AC-E71A2FC2284C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55F594E8-431D-463B-85AC-E71A2FC2284C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D37B0A-1FBB-472D-BFEE-7DFDC2EC1BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D37B0A-1FBB-472D-BFEE-7DFDC2EC1BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D37B0A-1FBB-472D-BFEE-7DFDC2EC1BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D37B0A-1FBB-472D-BFEE-7DFDC2EC1BAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

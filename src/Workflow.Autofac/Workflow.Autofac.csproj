@@ -1,8 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-
         <PackageId>byCrookie.Workflow.Autofac</PackageId>
 
         <Title>Workflow.Autofac</Title>
@@ -16,8 +14,6 @@
 
         <Copyright>https://github.com/byCrookie/Workflow/blob/main/LICENSE</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-
-        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     </PropertyGroup>
 
     <ItemGroup>

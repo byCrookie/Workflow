@@ -24,7 +24,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{C9E01B7B-93D8-49
 		nuget.config = nuget.config
 		README.md = README.md
 		Directory.Packages.props = Directory.Packages.props
-		Github.Directory.Build.props = Github.Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{DB289CED-64CC-4345-9EF3-2A3FD60E0A03}"

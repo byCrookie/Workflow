@@ -3,9 +3,7 @@
         <PackageVersion Include="byCrookie.NugetSdk" Version="1.0.16"/>
         <PackageVersion Include="byCrookie.LibrarySdk" Version="1.0.16"/>
         <PackageVersion Include="byCrookie.DependencyInjection" Version="1.0.6"/>
-        <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0"/>
         <PackageVersion Include="Autofac" Version="6.4.0" />
-        <PackageVersion Include="Jab" Version="0.8.2" />
         <PackageVersion Include="FluentAssertions" Version="6.7.0" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
         <PackageVersion Include="MSTest.TestAdapter" Version="2.2.10" />

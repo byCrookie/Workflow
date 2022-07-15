@@ -18,8 +18,6 @@
 
     <ItemGroup>
         <PackageReference Include="byCrookie.NugetSdk" />
-        <PackageReference Include="Jab" />
-        <PackageReference Include="byCrookie.DependencyInjection" />
     </ItemGroup>
     
     <ItemGroup>

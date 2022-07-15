@@ -5,20 +5,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="byCrookie.LibrarySdk" />
-        <PackageReference Include="FluentAssertions" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" />
-        <PackageReference Include="MSTest.TestAdapter" />
-        <PackageReference Include="MSTest.TestFramework" />
+        <PackageReference Include="byCrookie.LibrarySdk"/>
+        <PackageReference Include="FluentAssertions"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk"/>
+        <PackageReference Include="MSTest.TestAdapter"/>
+        <PackageReference Include="MSTest.TestFramework"/>
         <PackageReference Include="coverlet.collector">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Workflow.Autofac\Workflow.Autofac.csproj" />
-      <ProjectReference Include="..\..\src\Workflow\Workflow.csproj" />
+        <ProjectReference Include="..\..\src\Workflow.Autofac\Workflow.Autofac.csproj"/>
     </ItemGroup>
 
 </Project>

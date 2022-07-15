@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="byCrookie.LibrarySdk" />
+        <PackageReference Include="byCrookie.LibrarySdk"/>
         <PackageReference Include="FluentAssertions"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk"/>
         <PackageReference Include="MSTest.TestAdapter"/>
@@ -18,7 +18,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\Workflow.Autofac\Workflow.Autofac.csproj"/>
-        <ProjectReference Include="..\..\src\Workflow\Workflow.csproj"/>
     </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 A dynamic workflow library for .NET applications (mainly console).
 
 ## Dependencies & Acknowledgements
-This project relies on following to packages
+This project relies on following packages:
 * BuildSdk: https://github.com/byCrookie/BuildSdk
 * DependencyInjection: https://github.com/byCrookie/DependencyInjection
 * Jab Dependency-Injection: https://github.com/pakrym/jab

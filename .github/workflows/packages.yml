@@ -11,10 +11,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Setup .NET 6.0
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: '6.0.300'
 
       - name: Install NuGet Client
         uses: nuget/setup-nuget@v1

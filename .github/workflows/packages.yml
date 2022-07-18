@@ -25,6 +25,9 @@ jobs:
       - name: Add Github NuGet Source
         run: dotnet nuget add source --username byCrookie --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/byCrookie/index.json"
 
+      - name: Test
+        run: dotnet test --verbosity normal
+        
       - name: Generate Nuget Packages
         run: dotnet pack -c Release -o packages\ --include-source --include-symbols -p:IsLocalBuild=false
 

@@ -15,9 +15,10 @@ public class WorkflowTest
     [TestInitialize]
     public void Initialize()
     {
-        var container = new ContainerBuilder()
-            .AddWorkflow()
-            .Build();
+        var containerBuilder = new ContainerBuilder();
+        containerBuilder.AddWorkflow();
+        containerBuilder.RegisterModule(new WorkflowTestModule());
+        var container = containerBuilder.Build();
 
         _workflowBuilder = container.Resolve<IWorkflowBuilder<WorkflowTestContext>>();
     }
@@ -50,6 +51,9 @@ public class WorkflowTest
                 )
             )
             .While(c => c.Counter < 2, whileFlow => whileFlow.Then(c => c.Flow.Add(7)).Then(c => c.Counter++))
+            .ThenAsync<IWorkflowTestOptionStep<WorkflowTestContext, WorkflowTestOptions>, WorkflowTestOptions>(
+                options => options.Number = 8
+            )
             .Build();
 
         var result = await workflow.RunAsync(new WorkflowTestContext()).ConfigureAwait(false);
@@ -61,7 +65,7 @@ public class WorkflowTest
         result.Set3.Should().BeTrue();
         result.Flow.Should().BeEquivalentTo(new List<int>
         {
-            1, 2, 3, 4, 5, 6, 7, 7
+            1, 2, 3, 4, 5, 6, 7, 7, 8
         });
     }
 }

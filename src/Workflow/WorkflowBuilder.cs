@@ -15,7 +15,7 @@ using Workflow.Steps.While;
 
 namespace Workflow;
 
-public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TContext : WorkflowBaseContext
+public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext> where TContext : WorkflowBaseContext
 {
     private readonly IFactory _factory;
     private IInternalWorkflow<TContext> _workflow;
@@ -50,13 +50,13 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         return this;
     }
 
-    public IWorkflowBuilder<TContext> Throw<TException>(Action<TContext> action) where TException: Exception
+    public IWorkflowBuilder<TContext> Throw<TException>(Action<TContext> action) where TException : Exception
     {
         _workflow.AddStep(new WorkflowThrowStep<TException, TContext>(action));
         return this;
     }
 
-    public IWorkflowBuilder<TContext> ThrowAsync<TException>(Func<TContext, Task> action) where TException: Exception
+    public IWorkflowBuilder<TContext> ThrowAsync<TException>(Func<TContext, Task> action) where TException : Exception
     {
         _workflow.AddStep(new WorkflowThrowStep<TException, TContext>(action));
         return this;
@@ -74,13 +74,13 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         return this;
     }
 
-    public IWorkflowBuilder<TContext> Throw<TException>(string? message, Action<TContext> action) where TException: Exception
+    public IWorkflowBuilder<TContext> Throw<TException>(string? message, Action<TContext> action) where TException : Exception
     {
         _workflow.AddStep(new WorkflowMessageThrowStep<TException, TContext>(message, action));
         return this;
     }
 
-    public IWorkflowBuilder<TContext> ThrowAsync<TException>(string? message, Func<TContext, Task> action) where TException: Exception
+    public IWorkflowBuilder<TContext> ThrowAsync<TException>(string? message, Func<TContext, Task> action) where TException : Exception
     {
         _workflow.AddStep(new WorkflowMessageThrowStep<TException, TContext>(message, action));
         return this;
@@ -205,9 +205,12 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
     public IWorkflowBuilder<TContext> ThenAsync<TStep, TConfig>(Action<TConfig>? configure) where TStep : IWorkflowOptionsStep<TContext, TConfig>
     {
         var step = _factory.Create<TStep>();
-        var configuration = Activator.CreateInstance<TConfig>();
-        configure?.Invoke(configuration);
-        step.SetOptions(configuration);
+        step.SetOptions(new Lazy<TConfig>(() =>
+        {
+            var configuration = Activator.CreateInstance<TConfig>();
+            configure?.Invoke(configuration);
+            return configuration;
+        }));
         _workflow.AddStep(step);
         return this;
     }
@@ -231,7 +234,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         _workflow.AddStep(conditionStep);
         return this;
     }
-        
+
     public IWorkflowBuilder<TContext> If<TStep>(Func<TContext, bool> condition) where TStep : IWorkflowStep<TContext>
     {
         var step = _factory.Create<TStep>();
@@ -263,7 +266,7 @@ public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext>  where TCont
         _workflow.AddStep(new WorkflowWriteStep<TContext>(action));
         return this;
     }
-        
+
     public IWorkflowBuilder<TContext> ReadLine(Expression<Func<TContext, string?>> propertyPicker)
     {
         _workflow.AddStep(new WorkflowReadLineStep<TContext>(propertyPicker));

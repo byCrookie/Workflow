@@ -18,7 +18,6 @@
 
     <ItemGroup>
         <PackageReference Include="byCrookie.NugetSdk" />
-        <PackageReference Include="byCrookie.LibrarySdk" />
         <PackageReference Include="byCrookie.DependencyInjection" />
     </ItemGroup>
 

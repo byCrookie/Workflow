@@ -25,6 +25,12 @@ jobs:
       - name: Add Github NuGet Source
         run: dotnet nuget add source --username byCrookie --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/byCrookie/index.json"
 
+      - name: Generate Nuget Package
+        run: dotnet pack .\src\Workflow -c Release -o packages\workflow\ --include-source --include-symbols -p:IsLocalBuild=false
+
+      - name: Add Github NuGet Source
+        run: dotnet nuget add source "packages\workflow\"
+  
       - name: Test
         run: dotnet test --verbosity normal -p:IsLocalBuild=false
         

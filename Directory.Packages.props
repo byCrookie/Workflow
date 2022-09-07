@@ -1,5 +1,9 @@
 <Project>
     <ItemGroup>
+        <PackageVersion Include="byCrookie.Workflow" Version="1.0.20"/>
+    </ItemGroup>
+    
+    <ItemGroup>
         <PackageVersion Include="byCrookie.NugetSdk" Version="1.0.19"/>
         <PackageVersion Include="byCrookie.LibrarySdk" Version="1.0.19"/>
         <PackageVersion Include="byCrookie.DependencyInjection" Version="1.0.8"/>

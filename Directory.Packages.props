@@ -1,7 +1,7 @@
 <Project>
     <ItemGroup>
-        <PackageVersion Include="byCrookie.NugetSdk" Version="1.0.16"/>
-        <PackageVersion Include="byCrookie.LibrarySdk" Version="1.0.16"/>
+        <PackageVersion Include="byCrookie.NugetSdk" Version="1.0.19"/>
+        <PackageVersion Include="byCrookie.LibrarySdk" Version="1.0.19"/>
         <PackageVersion Include="byCrookie.DependencyInjection" Version="1.0.8"/>
         <PackageVersion Include="Autofac" Version="6.4.0" />
         <PackageVersion Include="FluentAssertions" Version="6.7.0" />

@@ -19,13 +19,9 @@
     <ItemGroup>
         <PackageReference Include="byCrookie.NugetSdk" />
     </ItemGroup>
-
-    <ItemGroup Condition="'$(IsLocalBuild)' == '' OR '$(IsLocalBuild)' == 'true'">
+    
+    <ItemGroup>
         <ProjectReference Include="..\Workflow\Workflow.csproj" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(IsLocalBuild)' == 'false'">
-        <PackageReference Include="byCrookie.Workflow" />
     </ItemGroup>
 
 </Project>

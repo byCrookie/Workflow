@@ -29,11 +29,11 @@ jobs:
         run: dotnet pack .\src\Workflow -c Release -o packages\workflow\ --include-source --include-symbols -p:IsLocalBuild=false
 
       - name: Add Github NuGet Source
-        run: dotnet nuget add source "packages\workflow\"
-  
+        run: dotnet nuget add source --name github_action "packages\workflow\"
+
       - name: Test
         run: dotnet test --verbosity normal -p:IsLocalBuild=false
-        
+
       - name: Generate Nuget Packages
         run: dotnet pack -c Release -o packages\ --include-source --include-symbols -p:IsLocalBuild=false
 

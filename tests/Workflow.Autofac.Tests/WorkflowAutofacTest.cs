@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Workflow.Autofac.Tests;
 
 [TestClass]
-public class WorkflowAutofacTest
+public sealed class WorkflowAutofacTest
 {
     private IContainer _container = null!;
 

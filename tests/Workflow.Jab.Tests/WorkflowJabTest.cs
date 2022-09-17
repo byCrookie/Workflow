@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Workflow.Jab.Tests;
 
 [TestClass]
-public class WorkflowJabTest
+public sealed class WorkflowJabTest
 {
     private WorkflowServiceProvider _serviceProvider = null!;
 

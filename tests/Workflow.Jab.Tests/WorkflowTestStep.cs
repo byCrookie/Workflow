@@ -1,6 +1,6 @@
 namespace Workflow.Jab.Tests;
 
-public class WorkflowTestStep<TContext> : IWorkflowTestStep<TContext> where TContext : WorkflowTestContext
+public sealed class WorkflowTestStep<TContext> : IWorkflowTestStep<TContext> where TContext : WorkflowTestContext
 {
     public Task ExecuteAsync(TContext context)
     {

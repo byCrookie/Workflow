@@ -1,6 +1,6 @@
 ﻿namespace Workflow.Steps.Console.Read;
 
-public class WorkflowMultiLineOptions
+public sealed class WorkflowMultiLineOptions
 {
     public WorkflowMultiLineOptions()
     {

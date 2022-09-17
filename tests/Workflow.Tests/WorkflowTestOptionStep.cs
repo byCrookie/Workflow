@@ -1,6 +1,6 @@
 namespace Workflow.Tests;
 
-public class WorkflowTestOptionStep<TContext, TOptions> : IWorkflowTestOptionStep<TContext, TOptions>
+public sealed class WorkflowTestOptionStep<TContext, TOptions> : IWorkflowTestOptionStep<TContext, TOptions>
     where TContext : WorkflowTestContext
     where TOptions : WorkflowTestOptions
 {

@@ -7,7 +7,7 @@ namespace Workflow.Autofac;
 /// Registers all components necessary to run a workflow.
 /// Additionally: All custom workflow steps have to be registered for their context implementation separately.
 /// </summary>
-public class WorkflowModule : Module
+public sealed class WorkflowModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {

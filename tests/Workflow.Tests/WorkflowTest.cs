@@ -6,7 +6,7 @@ using Workflow.Autofac;
 namespace Workflow.Tests;
 
 [TestClass]
-public class WorkflowTest
+public sealed class WorkflowTest
 {
     private IWorkflowBuilder<WorkflowTestContext> _workflowBuilder = null!;
 

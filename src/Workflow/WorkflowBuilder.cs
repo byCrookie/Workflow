@@ -15,7 +15,7 @@ using Workflow.Steps.While;
 
 namespace Workflow;
 
-public class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext> where TContext : WorkflowBaseContext
+public sealed class WorkflowBuilder<TContext> : IWorkflowBuilder<TContext> where TContext : WorkflowBaseContext
 {
     private readonly IFactory _factory;
     private IInternalWorkflow<TContext> _workflow;

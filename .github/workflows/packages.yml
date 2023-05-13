@@ -1,6 +1,9 @@
 name: Release Nuget Packages
 
 on:
+  push:
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 jobs:

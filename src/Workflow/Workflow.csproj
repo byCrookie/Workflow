@@ -22,4 +22,8 @@
         <PackageReference Include="byCrookie.DependencyInjection" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove=".buildsdk.prerelease.version" />
+    </ItemGroup>
+
 </Project>

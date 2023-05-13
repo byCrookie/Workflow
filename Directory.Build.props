@@ -2,11 +2,11 @@
     <PropertyGroup>        
         <MajorVersion>1</MajorVersion>
         <MinorVersion>0</MinorVersion>
-        <PatchVersion>21</PatchVersion>
+        <PatchVersion>22</PatchVersion>
     </PropertyGroup>
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFrameworks>netstandard2.1;net6.0;net7.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>11</LangVersion>

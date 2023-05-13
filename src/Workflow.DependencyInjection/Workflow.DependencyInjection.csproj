@@ -28,4 +28,8 @@
         <PackageReference Include="byCrookie.Workflow" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove=".buildsdk.prerelease.version" />
+    </ItemGroup>
+
 </Project>
